@@ -5,3 +5,6 @@ import { sampleRUM } from './aem.js';
 sampleRUM('cwv');
 
 // add more delayed functionality here
+let params = new URL(document.location.toString()).searchParams;
+let query = params.get("email");
+document.getElementById('email').value=query;
