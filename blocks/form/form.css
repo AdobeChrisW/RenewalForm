@@ -555,9 +555,10 @@ main .form .form-image-wrapper  img{
 }
 
 
-.text-wrapper.field-currentsolutionconcerns.field-wrapper {
+.multiline-wrapper.field-currentsolutionconcerns.field-wrapper {
+    
     grid-column: span 12;
-    width: 800px;
+  
 }  
 
 .number-wrapper.field-concurrentusers.field-wrapper {
@@ -587,6 +588,10 @@ main .form .form-image-wrapper  img{
     width: 200px;
 
 }
+
+#submit {
+    grid-column: 12;
+}
     
 .multiline-wrapper.field-instancesize.field-wrapper {
     padding-top: 35px;
@@ -597,7 +602,10 @@ label[for=concurrentusers]
     grid-column: span 12;
 }
 
-
+label[for=currentsolutionconcerns]
+{
+    grid-column: span 12;
+}
 
 .panel-wrapper.field-overcontract.field-wrapper
 {
@@ -606,6 +614,7 @@ label[for=concurrentusers]
 
 .multiline-wrapper.field-upselldetails.field-wrapper {
     align-content: end;
+    grid-column: span 12;
 }
 
 
