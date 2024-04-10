@@ -8,3 +8,6 @@ sampleRUM('cwv');
 let params = new URL(document.location.toString()).searchParams;
 let query = params.get("email");
 document.getElementById('email').value=query;
+
+document.getElementById("storagetypeinfo-description").innerHTML = 'Click here for details on how to get S3/Blob Storage <a href="adobe.ly/3OpHtLK">adobe.ly/3OpHtLK<a>';
+
