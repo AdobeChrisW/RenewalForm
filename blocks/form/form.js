@@ -420,6 +420,25 @@ function cleanUp(content) {
   return formDef?.replace(/\x83\n|\n|\s\s+/g, '');
 }
 
+function transformHyperlinks(ID_on_the_page) {
+  const postmsg = document.getElementById(ID_on_the_page).innerHTML;
+ //console.log(postmsg)
+  const urlRegex = /(((https?:\/\/)|(www\.))[^\s]+)/g;
+  const detectURL = postmsg.match(urlRegex);
+  
+  let resultPost = postmsg
+  
+  detectURL.forEach(url => {
+     resultPost = resultPost.replace(url, '<a href= "' + url + '" role="link" target="_blank" > ' + url.trim() + '</a>')
+   }) 
+  
+  document.getElementById(ID_on_the_page).innerHTML = resultPost;
+  
+ // document.getElementById("storagetypeinfo-description").innerHTML = resultPost; 
+  //document.getElementById("storagetypeinfo-description").innerHTML = 'Click here for details on how to get S3/Blob Storage <a href="https://adobe.ly/3OpHtLK" target="_blank">adobe.ly/3OpHtLK<a>';
+
+  }
+
 export default async function decorate(block) {
   let container = block.querySelector('a[href$=".json"]');
   let formDef;
@@ -458,5 +477,9 @@ export default async function decorate(block) {
     form.dataset.source = source;
     form.dataset.rules = rules;
     container.replaceWith(form);
+   
   }
+  transformHyperlinks("storagetypeinfo-description");
+ 
+  
 }
